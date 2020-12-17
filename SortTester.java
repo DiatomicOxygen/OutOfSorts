@@ -6,7 +6,20 @@ public class SortTester {
     boolean DEBUG = true;
 
     if (DEBUG) {
-      bubbleSortTest(100,200, 100);
+      //bubbleSortTest(100,200, 100);
+
+      int[] empty = {};
+      int[] s1 = {1, 5, 6, 7, 10, 11, 12};
+      int[] s2 = {1, 14, 14252, 112312321, 122321812};
+      int[] r1 = {12849, 19, 12, 11, 7, 5, 4, 2};
+      int[] r2 = {1010101, 1119, 112, 111, 17, 15, 4, 2, 0};
+      int[][] tests = {empty, s1, s2, r1, r2};
+
+      for (int i = 0; i < tests.length; i++) {
+        System.out.println("unsorted:" + Arrays.toString(tests[i]));
+        Sorts.bubbleSort(tests[i]);
+        System.out.println("sorted:" + Arrays.toString(tests[i]));
+      }
     }
   }
 
@@ -31,4 +44,9 @@ public class SortTester {
     }
   }
 
+  public static void bubbleSortTest(int[] arr) {
+    System.out.println(Arrays.toString(arr));
+    Sorts.bubbleSort(arr);
+    System.out.println(Arrays.toString(arr));
+  }
 }
