@@ -1,3 +1,4 @@
+import java.util.Arrays;
 public class Sorts{
   public static void bubbleSort(int[] data){
     boolean sorted = false;
@@ -12,6 +13,22 @@ public class Sorts{
           sorted = false;
         }
       }
+    }
+  }
+
+  public static void selectionSort(int[] data) {
+    int nextMin = 2147483647; //maximum value of int
+    int minPos = 0;
+    for (int i = 0; i < data.length; i++) {
+      for (int j = i; j < data.length; j++) {
+        nextMin = Math.min(data[j],nextMin);
+        if (nextMin == data[j]) {
+          minPos = j;
+        }
+      }
+      data[minPos] = data[i];
+      data[i] = nextMin;
+      nextMin = 2147483647;
     }
   }
 }
