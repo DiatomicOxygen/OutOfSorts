@@ -3,10 +3,10 @@ import java.util.Arrays;
 public class SortTester {
   public static void main(String[] args) {
 
-    boolean DEBUG = true;
+    boolean DEBUG = false;
 
     if (DEBUG) {
-      //bubbleSortTest(100,200, 100);
+      sortTest(100,200, 20, "insertion");
 
       int[] empty = {};
       int[] s1 = {1, 5, 6, 7, 10, 11, 12};
@@ -16,14 +16,12 @@ public class SortTester {
       int[][] tests = {empty, s1, s2, r1, r2};
 
       for (int i = 0; i < tests.length; i++) {
-        System.out.println("unsorted:" + Arrays.toString(tests[i]));
-        Sorts.bubbleSort(tests[i]);
-        System.out.println("sorted:" + Arrays.toString(tests[i]));
+        sortTest(tests[i], "insertion");
       }
     }
   }
 
-  public static void bubbleSortTest(int x, int y, int arrSize) {
+  public static void sortTest(int x, int y, int arrSize, String type) {
     int[] arrSizes = new int[10];
     Random rng = new Random(x);
     Random rng2 = new Random(y);
@@ -38,15 +36,31 @@ public class SortTester {
         randomArr[j] = rng2.nextInt() % 100;
       }
       System.out.println("unsorted:" + Arrays.toString(randomArr));
-      Sorts.bubbleSort(randomArr);
+      if (type.equals("bubble")) {
+        Sorts.bubbleSort(randomArr);
+      }
+      if (type.equals("selection")) {
+        Sorts.selectionSort(randomArr);
+      }
+      if (type.equals("insertion")) {
+        Sorts.insertionSort(randomArr);
+      }
       System.out.println("sorted:" + Arrays.toString(randomArr));
       System.out.println();
     }
   }
 
-  public static void bubbleSortTest(int[] arr) {
-    System.out.println(Arrays.toString(arr));
-    Sorts.bubbleSort(arr);
-    System.out.println(Arrays.toString(arr));
+  public static void sortTest(int[] arr, String type) {
+    System.out.println("unsorted:" + Arrays.toString(arr));
+    if (type.equals("bubble")) {
+      Sorts.bubbleSort(arr);
+    }
+    if (type.equals("selection")) {
+      Sorts.selectionSort(arr);
+    }
+    if (type.equals("insertion")) {
+      Sorts.insertionSort(arr);
+    }
+    System.out.println("sorted:" + Arrays.toString(arr));
   }
 }
