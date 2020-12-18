@@ -31,4 +31,20 @@ public class Sorts{
       nextMin = 2147483647;
     }
   }
+
+  public static void insertionSort(int[] data) {
+    int placeholder = 0;
+    for (int i = 0; i < data.length; i++) {
+      placeholder = data[i];
+      for (int j = i; j > 0; j--) {
+        if (data[j-1] > placeholder) {
+          data[j] = data[j-1];
+          data[j-1] = placeholder;
+        } else {
+          data[j] = placeholder;
+          j = 0;
+        }
+      }
+    }
+  }
 }
