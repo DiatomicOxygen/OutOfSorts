@@ -16,7 +16,10 @@ public class Driver{
           randData[i] = ((int)Math.random() * 10000);
         }
       }else if(args[2].equals("equal")){
-
+        int equalVal = (int)Math.random() * 10000;
+        for (int i = 0; i < randData.length; i++) {
+          randData[i] = equalVal;
+        }
       }else if(args[2].equals("sorted")){
 
       }else if(args[2].equals("reversed")){
