@@ -22,12 +22,15 @@ public class Driver{
           randData[i] = equalVal;
         }
       }else if(args[2].equals("sorted")){
-        randData[0] = (int)(Math.random() * 10);
+        randData[0] = (int)(Math.random() * 10000);
         for (int i = 1; i < randData.length; i++) {
           randData[i] = randData[i-1] + Math.abs((int)(Math.random() * 100));
         }
       }else if(args[2].equals("reversed")){
-
+        randData[0] = (int)(Math.random() * 10000);
+        for (int i = 1; i < randData.length; i++) {
+          randData[i] = randData[i-1] - Math.abs((int)(Math.random() * 100));
+        }
       }
       //System.out.println(Arrays.toString(randData));
       if(args[1].equals("bubble")){
