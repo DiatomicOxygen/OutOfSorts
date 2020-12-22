@@ -13,19 +13,23 @@ public class Driver{
       //overhead: 1 random array generation.
       if(args.length < 3 || args[2].equals("random")){
 	      for (int i = 0; i < randData.length; i++) {
-          randData[i] = ((int)Math.random() * 10000);
+          randData[i] = (int)(Math.random() * 10000);
         }
+
       }else if(args[2].equals("equal")){
-        int equalVal = (int)Math.random() * 10000;
+        int equalVal = (int)(Math.random() * 10000);
         for (int i = 0; i < randData.length; i++) {
           randData[i] = equalVal;
         }
       }else if(args[2].equals("sorted")){
-
+        randData[0] = (int)(Math.random() * 10);
+        for (int i = 1; i < randData.length; i++) {
+          randData[i] = randData[i-1] + Math.abs((int)(Math.random() * 100));
+        }
       }else if(args[2].equals("reversed")){
 
       }
-
+      //System.out.println(Arrays.toString(randData));
       if(args[1].equals("bubble")){
         Sorts.bubbleSort(randData);
       }
