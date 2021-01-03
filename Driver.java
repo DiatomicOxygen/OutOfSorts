@@ -33,6 +33,7 @@ public class Driver{
         }
       }
       //System.out.println(Arrays.toString(randData));
+      
       if(args[1].equals("bubble")){
         Sorts.bubbleSort(randData);
       }
